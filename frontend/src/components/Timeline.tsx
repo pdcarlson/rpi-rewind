@@ -1,13 +1,13 @@
+// frontend/src/components/Timeline.tsx
 import { useEffect, useRef } from "react";
-// import our new master type
 import type { AppwriteEvent, EventDocument } from "../appwrite";
 import { TimelineEvent } from "./TimelineEvent";
 
-// import our new component-specific styles
-import "./Timeline.css";
+// --- cleanup ---
+// no more css import
+// -----------------
 
 interface TimelineProps {
-  // we now expect an array of our master type
   events: AppwriteEvent[];
 }
 
@@ -16,67 +16,62 @@ export function Timeline({ events }: TimelineProps) {
   const eventRefs = useRef<(HTMLDivElement | null)[]>([]);
   const currentEraRef = useRef<string | null>(null);
 
-  // ... useEffect logic is unchanged ...
   useEffect(() => {
-    // what to do when an event card is 'intersected'
     const handleIntersect: IntersectionObserverCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // an event card is on screen
           const target = entry.target as HTMLElement;
-          const era = target.dataset.era; // read the 'data-era' attribute
+          const era = target.dataset.era; // e.g., "era-1980s"
 
           if (era && era !== currentEraRef.current) {
-            // this is a *new* era, so update the body
             console.log(`--- timeshift active: ${era} ---`);
 
-            // remove old era class if it exists
+            // remove old era class
             if (currentEraRef.current) {
               document.body.classList.remove(currentEraRef.current);
             }
 
-            // add the new one and update our ref
+            // add the new one
             document.body.classList.add(era);
             currentEraRef.current = era;
+
+            // --- todo: add audio logic here ---
+            // if (era === 'era-1980s') playSound('boot.mp3');
           }
         }
       });
     };
 
-    // create one observer
     observerRef.current = new IntersectionObserver(handleIntersect, {
       root: null,
-      // trigger when card is in the middle 40% of the screen
-      rootMargin: "-30% 0px -30% 0px",
-      threshold: 0.1, // needs at least 10% of the card to be visible
+      rootMargin: "-40% 0px -40% 0px", // triggers in the middle 20%
+      threshold: 0,
     });
 
-    // attach the observer to every event card that has a ref
     eventRefs.current.forEach((ref) => {
       if (ref) {
         observerRef.current?.observe(ref);
       }
     });
 
-    // cleanup function: disconnect the observer when the component unmounts
     return () => {
       observerRef.current?.disconnect();
     };
   }, [events]);
 
   return (
-    <div className="timeline-container">
-      {/* this line now has z-0 from the css */}
-      <div className="timeline-line"></div>
+    // this is our main timeline container
+    <div className="relative w-full">
+      {/* the central timeline line */}
+      <div className="absolute left-1/2 top-0 -ml-px h-full w-0.5 bg-gray-600" />
 
-      <div className="timeline-event-list">
+      {/* list of events */}
+      <div className="relative flex flex-col gap-12">
         {events.map((event, index) => (
           <TimelineEvent
             key={event.$id}
-            event={event as EventDocument} // 'event' is AppwriteEvent, we pass just the data
-            // alternate left/right placement
+            event={event as EventDocument}
             side={index % 2 === 0 ? "left" : "right"}
-            // this is the fix: curly braces to make the return type 'void'
             ref={(el) => {
               eventRefs.current[index] = el;
             }}

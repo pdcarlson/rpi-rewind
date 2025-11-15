@@ -1,6 +1,12 @@
-/* src/index.css */
+/* frontend/src/index.css */
+
+/* we keep the font import */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+/* this is the only tailwind import we need */
 @import "tailwindcss";
 
-html {
-  scroll-behavior: smooth;
-}
+/* we remove the "body { @apply ... }" block entirely.
+  this is the source of the compilation error in v4.
+  we will apply these styles in App.tsx instead.
+*/
