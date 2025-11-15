@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 [
   {
     "title": "1961 GE College Bowl Team",
@@ -741,10 +740,7 @@
     "year": 1935,
     "era": "1930s",
     "image_url": "https://digitalassets.archives.rpi.edu/cantaloupe/iiif/2/upload%2F569.tiff/full/full/0/default.jpg"
-  }
-]
-=======
-[
+  },
   {
     "decade": "1820s",
     "year": "1824",
@@ -1451,4 +1447,3 @@
     "description": "RPI celebrates its Bicentennial (200th anniversary) and unveils the world's first IBM quantum computer on a university campus."
   }
 ]
->>>>>>> e4322677b9b00c7a82947931d43896ab356af040
