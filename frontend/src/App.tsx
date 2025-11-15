@@ -1,5 +1,5 @@
+// src/App.tsx
 import { useEffect, useState } from "react";
-// import our new "master" type
 import { appwrite, type AppwriteEvent } from "./appwrite";
 import { Timeline } from "./components/Timeline";
 import { Query } from "appwrite";
@@ -8,7 +8,7 @@ import { Query } from "appwrite";
 import "./App.css";
 
 // import our themes
-import "./themes/1980s.css";
+import "./themes/1880s.css";
 
 function App() {
   // use our new type in the state
