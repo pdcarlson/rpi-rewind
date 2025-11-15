@@ -1,0 +1,158 @@
+ 
+	 						 
+			 
+	 
+					{
+  "@context": [
+  "http://www.w3.org/ns/anno.jsonld",
+  "http://iiif.io/api/presentation/3/context.json"
+  ],
+  "type": "Manifest",
+  "id": "https://digitalassets.archives.rpi.edu/do/5d9861ed-78c0-4ea7-a38b-da624d481966/metadata/iiifmanifest/default.jsonld",
+  "label": {
+    "en": [
+      "86 Field"
+    ]
+  },
+  "requiredStatement": {
+    "label": { "en": [ "Attribution" ] },
+    "value": { "en": [ "All rights reserved. Permission of the Institute Archives and Special Collections required for use and reproduction." ] }
+  },
+  "rights": "http:\/\/rightsstatements.org\/vocab\/CNE\/1.0\/",
+  "metadata": [
+    {
+      "label": {
+        "en": [
+          "contributor"
+        ]
+      },
+      "value": {
+        "en": [
+          "Rensselaer Polytechnic Institute"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "contributor"
+        ]
+      },
+      "value": {
+        "en": [
+          "Institute Archives and Special Collections"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "description"
+        ]
+      },
+      "value": {
+        "en": [
+          "<p>View of RPI's '86 Field from the east looking toward the old Clubhouse and Sage Laboratory.  Tennis court in the foreground and students in various activities on the field.<\/p>"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "navDate"
+        ]
+      },
+      "value":  {
+        "en": [
+          "September 13th at 10:16am"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "license"
+        ]
+      },
+      "value": {
+        "en": [
+          "All rights reserved. Permission of the Institute Archives and Special Collections required for use and reproduction."
+        ]
+      }
+    }
+  ],
+  "within": "https://digitalassets.archives.rpi.edu/do/5995a461-e9ca-4f3a-b770-0a0ad034bf26",
+  "partOf": [ { "id": "https://digitalassets.archives.rpi.edu/do/5995a461-e9ca-4f3a-b770-0a0ad034bf26/metadata/iiifmanifest3collection/default.jsonld", "type": "Manifest" } ],
+"items": [         {
+   	      "id": "https://digitalassets.archives.rpi.edu/do/5d9861ed-78c0-4ea7-a38b-da624d481966/iiif/canvas/p1",
+      "type": "Canvas",
+      "label": { "en": [       "86 Field"]},
+      "thumbnail": [
+        {
+          "id": "https://digitalassets.archives.rpi.edu/cantaloupe/iiif/2/upload%2F189.tiff/full/240,/0/default.jpg",
+          "type": "Image",
+          "format": "image/jpeg",
+          "width": 240,
+          "height": 190
+        }
+      ],
+      "height": 3139,
+      "width": 3971,
+      "items": [
+        {
+          "id": "https://digitalassets.archives.rpi.edu/do/5d9861ed-78c0-4ea7-a38b-da624d481966/iiif/page/p1",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://digitalassets.archives.rpi.edu/do/5d9861ed-78c0-4ea7-a38b-da624d481966/iiif/annotation/p1",
+              "type": "Annotation",
+              "motivation": "painting",     
+              "thumbnail": [
+        {
+          "id": "https://digitalassets.archives.rpi.edu/cantaloupe/iiif/2/upload%2F189.tiff/full/240,/0/default.jpg",
+          "type": "Image",
+          "format": "image/jpeg",
+          "width": 240,
+          "height": 190
+        }
+      ],          
+              "body": {
+                "id": "https://digitalassets.archives.rpi.edu/cantaloupe/iiif/2/upload%2F189.tiff/full/full/0/default.jpg",
+                "type": "Image",
+                "format": "image/jpeg",
+                "service": [
+                  {
+                    "id": "https://digitalassets.archives.rpi.edu/cantaloupe/iiif/2/upload%2F189.tiff",
+                    "type": "ImageService2",
+                    "profile": "level2"
+                  }
+                ],
+                "height": 3139,
+                "width": 3971
+              },
+              "target": "https://digitalassets.archives.rpi.edu/do/5d9861ed-78c0-4ea7-a38b-da624d481966/iiif/canvas/p1"
+            }
+          ]
+        }
+      ]
+     
+     }
+      ],
+  "structures": [
+    {
+      "id": "https://digitalassets.archives.rpi.edu/do/5d9861ed-78c0-4ea7-a38b-da624d481966/iiif/range/r1",
+      "type": "Range",
+      "label": {
+        "en": [
+          "86 Field"
+        ]
+      },
+      "items": [
+        {
+          "id":  "https://digitalassets.archives.rpi.edu/do/5d9861ed-78c0-4ea7-a38b-da624d481966/iiif/canvas/p1",
+          "type": "Canvas"
+        }
+      ]
+    }
+  ]
+}
