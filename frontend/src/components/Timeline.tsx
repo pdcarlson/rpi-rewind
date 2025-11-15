@@ -1,24 +1,22 @@
-// src/components/Timeline.tsx
 import { useEffect, useRef } from "react";
-import type { Models } from "appwrite";
-import type { EventDocument } from "../appwrite";
+// import our new master type
+import type { AppwriteEvent, EventDocument } from "../appwrite";
 import { TimelineEvent } from "./TimelineEvent";
 
+// import our new component-specific styles
+import "./Timeline.css";
+
 interface TimelineProps {
-  events: Models.Document[];
+  // we now expect an array of our master type
+  events: AppwriteEvent[];
 }
 
 export function Timeline({ events }: TimelineProps) {
-  // this ref will hold a reference to our intersection observer
   const observerRef = useRef<IntersectionObserver | null>(null);
-
-  // this ref will hold references to every single event card dom element
   const eventRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  // this state will track the currently visible era
   const currentEraRef = useRef<string | null>(null);
 
-  // this is the core "time-shift" logic
+  // ... useEffect logic is unchanged ...
   useEffect(() => {
     // what to do when an event card is 'intersected'
     const handleIntersect: IntersectionObserverCallback = (entries) => {
@@ -48,8 +46,9 @@ export function Timeline({ events }: TimelineProps) {
     // create one observer
     observerRef.current = new IntersectionObserver(handleIntersect, {
       root: null,
-      rootMargin: "0px",
-      threshold: 0.5, // fire when 50% of the card is visible
+      // trigger when card is in the middle 40% of the screen
+      rootMargin: "-30% 0px -30% 0px",
+      threshold: 0.1, // needs at least 10% of the card to be visible
     });
 
     // attach the observer to every event card that has a ref
@@ -63,20 +62,27 @@ export function Timeline({ events }: TimelineProps) {
     return () => {
       observerRef.current?.disconnect();
     };
-  }, [events]); // re-run if the events list changes
+  }, [events]);
 
   return (
-    <div className="container mx-auto max-w-3xl py-12">
-      {events.map((event, index) => (
-        <TimelineEvent
-          key={event.$id}
-          event={event as unknown as EventDocument}
-          // add the dom element to our array of refs
-          ref={(el) => {
-            eventRefs.current[index] = el;
-          }}
-        />
-      ))}
+    <div className="timeline-container">
+      {/* this line now has z-0 from the css */}
+      <div className="timeline-line"></div>
+
+      <div className="timeline-event-list">
+        {events.map((event, index) => (
+          <TimelineEvent
+            key={event.$id}
+            event={event as EventDocument} // 'event' is AppwriteEvent, we pass just the data
+            // alternate left/right placement
+            side={index % 2 === 0 ? "left" : "right"}
+            // this is the fix: curly braces to make the return type 'void'
+            ref={(el) => {
+              eventRefs.current[index] = el;
+            }}
+          />
+        ))}
+      </div>
     </div>
   );
 }

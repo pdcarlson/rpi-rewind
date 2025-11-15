@@ -1,0 +1,43 @@
+/* src/themes/1980s.css */
+
+/* this entire file is our 1980s 'skin'.
+  it only activates when the body tag has our class.
+*/
+
+body.era-1980s {
+  /*
+    use !important to override tailwind's utility classes.
+    this is one of the few good use cases for !important.
+  */
+  background-color: #000 !important;
+  color: #00ff00 !important;
+  font-family: "consolas", "monaco", monospace !important;
+}
+
+/* override the 'modern' cyan color */
+body.era-1980s .timeline-event {
+  border-color: #00ff00 !important;
+  background-color: #0a0a0a !important;
+  border-radius: 0 !important; /* no rounded corners in the 80s */
+  box-shadow: none !important;
+}
+
+/* style the event content */
+body.era-1980s .timeline-event span {
+  color: #00ff00 !important;
+}
+
+body.era-1980s .timeline-event h2 {
+  color: #00ff00 !important;
+}
+
+body.era-1980s .timeline-event p {
+  color: #00dd00 !important; /* slightly darker for readability */
+}
+
+/* apply a monochrome crt filter to images */
+body.era-1980s .timeline-event img {
+  filter: grayscale(1) brightness(1.2) contrast(1.1) opacity(0.8) !important;
+  border-radius: 0 !important;
+  border: 1px solid #00ff00;
+}

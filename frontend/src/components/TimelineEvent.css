@@ -1,0 +1,63 @@
+/* src/components/TimelineEvent.css */
+@reference "tailwindcss"; /* <-- the fix */
+
+.timeline-event-card {
+  /*
+    'relative' so the arrow can be positioned
+    'z-5' to make sure it's above the timeline-line
+  */
+  @apply relative z-5 w-[calc(50%-2.5rem)] rounded-lg border-2 border-cyan-400/50 bg-gray-800 p-6 shadow-xl;
+}
+
+.timeline-event-card-left {
+  @apply self-start;
+}
+
+.timeline-event-card-right {
+  @apply self-end;
+}
+
+/*
+  base styles for the small pointer arrow.
+  it's positioned 'absolute' relative to the card.
+*/
+.timeline-event-arrow {
+  @apply absolute top-1/2 h-5 w-5 -translate-y-1/2 rotate-45 bg-gray-800;
+}
+
+.timeline-event-arrow-left {
+  /*
+    places it on the right edge of the card,
+    and applies the correct borders to make a clean 'beak'
+  */
+  @apply -right-2.5 border-r-2 border-t-2 border-cyan-400/50;
+}
+
+.timeline-event-arrow-right {
+  /*
+    places it on the left edge of the card,
+    and applies the correct borders
+  */
+  @apply -left-2.5 border-l-2 border-b-2 border-cyan-400/50;
+}
+
+/* inner content styles */
+.timeline-event-content {
+  @apply flex gap-4;
+}
+
+.timeline-event-image {
+  @apply w-32 h-32 flex-shrink-0 rounded-md object-cover shadow-lg;
+}
+
+.timeline-event-year {
+  @apply text-lg font-bold text-cyan-400;
+}
+
+.timeline-event-title {
+  @apply text-xl font-bold mb-2;
+}
+
+.timeline-event-description {
+  @apply text-sm text-gray-300;
+}

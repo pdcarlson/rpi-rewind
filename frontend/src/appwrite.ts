@@ -1,5 +1,6 @@
 // src/appwrite.ts
 import { Client, Databases } from "appwrite";
+import type { Models } from "appwrite"; // <-- this is the fix
 
 // get env variables
 const endpoint = import.meta.env.VITE_APPWRITE_ENDPOINT;
@@ -36,3 +37,7 @@ export interface EventDocument {
   era: string;
   image_url: string;
 }
+
+// this is our new "master" type.
+// it's an appwrite document *and* our custom event data.
+export type AppwriteEvent = EventDocument & Models.Document;
