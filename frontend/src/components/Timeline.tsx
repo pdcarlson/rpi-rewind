@@ -3,10 +3,6 @@ import { useEffect, useRef } from "react";
 import type { AppwriteEvent, EventDocument } from "../appwrite";
 import { TimelineEvent } from "./TimelineEvent";
 
-// --- cleanup ---
-// no more css import
-// -----------------
-
 interface TimelineProps {
   events: AppwriteEvent[];
 }
@@ -21,22 +17,15 @@ export function Timeline({ events }: TimelineProps) {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const target = entry.target as HTMLElement;
-          const era = target.dataset.era; // e.g., "era-1980s"
+          const era = target.dataset.era;
 
           if (era && era !== currentEraRef.current) {
             console.log(`--- timeshift active: ${era} ---`);
-
-            // remove old era class
             if (currentEraRef.current) {
               document.body.classList.remove(currentEraRef.current);
             }
-
-            // add the new one
             document.body.classList.add(era);
             currentEraRef.current = era;
-
-            // --- todo: add audio logic here ---
-            // if (era === 'era-1980s') playSound('boot.mp3');
           }
         }
       });
@@ -44,7 +33,10 @@ export function Timeline({ events }: TimelineProps) {
 
     observerRef.current = new IntersectionObserver(handleIntersect, {
       root: null,
-      rootMargin: "-40% 0px -40% 0px", // triggers in the middle 20%
+      // --- this is the "choppiness" fix ---
+      // triggers at a 1px line exactly in the middle of the screen
+      rootMargin: "-50% 0px -50% 0px",
+      // ------------------------------------
       threshold: 0,
     });
 
@@ -60,9 +52,9 @@ export function Timeline({ events }: TimelineProps) {
   }, [events]);
 
   return (
-    // this is our main timeline container
     <div className="relative w-full">
       {/* the central timeline line */}
+      {/* we add z-0 here so the "dots" can be z-10 and sit on top */}
       <div className="absolute left-1/2 top-0 -ml-px h-full w-0.5 bg-gray-600" />
 
       {/* list of events */}

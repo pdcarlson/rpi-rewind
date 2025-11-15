@@ -2,10 +2,6 @@
 import { forwardRef } from "react";
 import type { EventDocument } from "../appwrite";
 
-// --- cleanup ---
-// no more css import
-// -----------------
-
 interface TimelineEventProps {
   event: EventDocument;
   side: "left" | "right";
@@ -13,49 +9,46 @@ interface TimelineEventProps {
 
 export const TimelineEvent = forwardRef<HTMLDivElement, TimelineEventProps>(
   ({ event, side }, ref) => {
-    // define the container classes based on 'side'
-    const containerClasses = [
-      "relative flex w-full",
-      side === "left" ? "justify-start" : "justify-end",
-    ].join(" ");
+    // --- this is our new "card" component ---
+    const Card = () => (
+      <div
+        className="w-full overflow-hidden rounded-lg bg-gray-800 shadow-xl 
+                   transition-all duration-300 hover:shadow-2xl hover:scale-105"
+      >
+        <img
+          src={event.image_url}
+          alt={event.title}
+          className="h-48 w-full object-cover"
+        />
+        <div className="p-4">
+          <span className="text-sm font-semibold text-red-400">
+            {event.year}
+          </span>
+          <h2 className="text-xl font-bold text-white">{event.title}</h2>
+          <p className="mt-1 text-gray-300">{event.description}</p>
+        </div>
+      </div>
+    );
 
-    // define the card's position and arrow
-    const cardPositionClasses = side === "left" ? "pr-8" : "pl-8";
-
-    const arrowPositionClasses = side === "left" ? "right-0" : "left-0";
-
+    // --- new "dot-and-line" layout ---
     return (
-      // this outer div handles left/right placement
-      <div ref={ref} data-era={`era-${event.era}`} className={containerClasses}>
-        {/* this div is the card itself */}
+      // this ref div is now the container for the dot and card
+      <div ref={ref} data-era={`era-${event.era}`} className="relative">
+        {/* the dot on the timeline */}
         <div
-          className={`relative w-1/2 rounded-lg bg-gray-800 shadow-xl 
-                      transition-all duration-300 hover:shadow-2xl hover:scale-105
-                      ${cardPositionClasses}`}
+          className="absolute left-1/2 top-1/2 z-10 h-4 w-4 -translate-x-1/2 
+                     -translate-y-1/2 rounded-full bg-red-500"
+        />
+
+        {/* card container: positioned left or right */}
+        <div
+          className={`relative w-5/12 ${
+            side === "left"
+              ? "float-left mr-[calc(50%+2rem)]" // pushes to the left
+              : "float-right ml-[calc(50%+2rem)]" // pushes to the right
+          }`}
         >
-          {/* the little arrow pointing to the timeline */}
-          <div
-            className={`absolute top-1/2 -mt-2 h-4 w-4 -translate-y-1/2 
-                        rotate-45 transform bg-gray-800 
-                        ${arrowPositionClasses}`}
-          />
-
-          {/* main content */}
-          <div className="overflow-hidden rounded-lg">
-            <img
-              src={event.image_url}
-              alt={event.title}
-              className="h-48 w-full object-cover"
-            />
-
-            <div className="p-4">
-              <span className="text-sm font-semibold text-red-400">
-                {event.year}
-              </span>
-              <h2 className="text-xl font-bold text-white">{event.title}</h2>
-              <p className="mt-1 text-gray-300">{event.description}</p>
-            </div>
-          </div>
+          <Card />
         </div>
       </div>
     );
