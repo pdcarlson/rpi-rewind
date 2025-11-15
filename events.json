@@ -36,6 +36,11 @@
   },
   {
     "decade": "1830s",
+    "year": "1833",
+    "description": "The school is renamed the Rensselaer Institute."
+  },
+  {
+    "decade": "1830s",
     "year": "1834",
     "description": "Rensselaer School moves to Van der Heyden Mansion and is renamed the Rensselaer Institute."
   },
@@ -66,8 +71,43 @@
   },
   {
     "decade": "1840s",
+    "year": "1844",
+    "description": "Lois Graham becomes the first female student inducted into the mechanical engineering honor society, Pi Tau Sigma."
+  },
+  {
+    "decade": "1840s",
     "year": "1845",
     "description": "Nathan S. S. Beman appointed president."
+  },
+  {
+    "decade": "1840s",
+    "year": "1946",
+    "description": "Lois Graham and Mary Ellen Rathbun are the first women to earn a Rensselaer degree."
+  },
+  {
+    "decade": "1840s",
+    "year": "1946",
+    "description": "GI Bill triples student enrollment."
+  },
+  {
+    "decade": "1840s",
+    "year": "1946",
+    "description": "Post-war housing accommodates married students and expands the Rensselaer campus."
+  },
+  {
+    "decade": "1840s",
+    "year": "1948",
+    "description": "The Lacrosse team plays an exhibition game at the London Olympics."
+  },
+  {
+    "decade": "1840s",
+    "year": "1948",
+    "description": "RPI students vote to make \"The Green Devil\" their first official sports mascot."
+  },
+  {
+    "decade": "1840s",
+    "year": "1949",
+    "description": "Houston Field House is completed."
   },
   {
     "decade": "1850s",
@@ -98,136 +138,6 @@
     "decade": "1850s",
     "year": "1859",
     "description": "Benjamin Franklin Greene abruptly resigns and starts the Glenmore School."
-  },
-  {
-    "decade": "1860s",
-    "year": "1861",
-    "description": "Rensselaer Institute is officially renamed Rensselaer Polytechnic Institute. Additional requirements for the civil engineering degree extends the course to four years."
-  },
-  {
-    "decade": "1860s",
-    "year": "1862",
-    "description": "The Great Troy Fire destroys the Infant School Property."
-  },
-  {
-    "decade": "1860s",
-    "year": "1864",
-    "description": "The Main Building is completed on 8th Street."
-  },
-  {
-    "decade": "1860s",
-    "year": "1864",
-    "description": "Theta Xi is founded at R.P.I. on April 29th."
-  },
-  {
-    "decade": "1860s",
-    "year": "1865",
-    "description": "John F. Winslow becomes president."
-  },
-  {
-    "decade": "1860s",
-    "year": "1865",
-    "description": "The Transit, a student yearbook, is published by the junior class."
-  },
-  {
-    "decade": "1860s",
-    "year": "1866",
-    "description": "First Grand Marshal is selected by the student body."
-  },
-  {
-    "decade": "1860s",
-    "year": "1866",
-    "description": "Winslow Chemical Laboratory is completed."
-  },
-  {
-    "decade": "1860s",
-    "year": "1868",
-    "description": "Thomas Brinsmade was appointed president in 1868, but sadly he died after serving less than two month in office."
-  },
-  {
-    "decade": "1860s",
-    "year": "1868",
-    "description": "James Forsyth is appointed president."
-  },
-  {
-    "decade": "1860s",
-    "year": "1869",
-    "description": "The Rensselaer Association of Graduates is established."
-  },
-  {
-    "decade": "1860s",
-    "year": "1869",
-    "description": "The Polytechnic, a student newspaper, is published during the fall semester."
-  },
-  {
-    "decade": "1870s",
-    "year": "1871",
-    "description": "First intercollegiate baseball game played against Union College."
-  },
-  {
-    "decade": "1870s",
-    "year": "1874",
-    "description": "The Glee Club is formed."
-  },
-  {
-    "decade": "1870s",
-    "year": "1874",
-    "description": "The first recorded Cane Rush is held."
-  },
-  {
-    "decade": "1870s",
-    "year": "1878",
-    "description": "Williams Proudfit Astronomical Observatory is completed."
-  },
-  {
-    "decade": "1880s",
-    "year": "1881",
-    "description": "Garnett Baltimore is the first African-American student to earn a degree from Rensselaer."
-  },
-  {
-    "decade": "1880s",
-    "year": "1885",
-    "description": "The Polytechnic begins continuous publication as the student newspaper."
-  },
-  {
-    "decade": "1880s",
-    "year": "1886",
-    "description": "RPI joins the State Athletic Association and begins official participation in intercollegiate athletics."
-  },
-  {
-    "decade": "1880s",
-    "year": "1886",
-    "description": "First intercollegiate football game played against Ridgefield, A.C."
-  },
-  {
-    "decade": "1880s",
-    "year": "1887",
-    "description": "Rensselaer's first Gymnasium is built."
-  },
-  {
-    "decade": "1880s",
-    "year": "1888",
-    "description": "John H. Peck is appointed president."
-  },
-  {
-    "decade": "1890s",
-    "year": "1892",
-    "description": "Palmer C. Ricketts is hired as Director of the Institute."
-  },
-  {
-    "decade": "1890s",
-    "year": "1893",
-    "description": "Rensselaer exhibits at the World’s Columbian Exposition in Chicago, Illinois."
-  },
-  {
-    "decade": "1890s",
-    "year": "1893",
-    "description": "An Alumni Building is completed on Second Street."
-  },
-  {
-    "decade": "1890s",
-    "year": "1897",
-    "description": "Institute basketball team forms just a few years after the game is invented. The first game is played against the R.R.Y.M.C.A. of Troy."
   },
   {
     "decade": "1900s",
@@ -317,7 +227,7 @@
   {
     "decade": "1910s",
     "year": "1916",
-    "description": "First Doctoral degree awarded."
+    "description": "First Doctorate is awarded (in Electrical Engineering)."
   },
   {
     "decade": "1910s",
@@ -415,31 +325,6 @@
     "description": "Curtiss-Wright Cadette training program held at R.P.I."
   },
   {
-    "decade": "1940s",
-    "year": "1946",
-    "description": "Lois Graham and Mary Ellen Rathbun are the first women to earn a Rensselaer degree."
-  },
-  {
-    "decade": "1940s",
-    "year": "1946",
-    "description": "GI Bill triples student enrollment."
-  },
-  {
-    "decade": "1940s",
-    "year": "1946",
-    "description": "Post-war housing accommodates married students and expands the Rensselaer campus."
-  },
-  {
-    "decade": "1940s",
-    "year": "1948",
-    "description": "The Lacrosse team plays an exhibition game at the London Olympics."
-  },
-  {
-    "decade": "1940s",
-    "year": "1949",
-    "description": "Houston Field House is completed."
-  },
-  {
     "decade": "1950s",
     "year": "1950",
     "description": "The Dutchman’s Shoes trophy awarded for the first time after an R.P.I. – Union football game."
@@ -458,6 +343,11 @@
     "decade": "1950s",
     "year": "1951",
     "description": "Two-semester, four year program reinstated in September."
+  },
+  {
+    "decade": "1950s",
+    "year": "1951",
+    "description": "The first five African American students are admitted as graduate students."
   },
   {
     "decade": "1950s",
@@ -501,8 +391,73 @@
   },
   {
     "decade": "1950s",
+    "year": "1958",
+    "description": "The Atomic Energy Commission funds a project to build a linear electron accelerator, leading to the formation of the Nuclear Engineering department in 1960."
+  },
+  {
+    "decade": "1950s",
     "year": "1959",
     "description": "Freshmen Week events are abolished."
+  },
+  {
+    "decade": "1960s",
+    "year": "1861",
+    "description": "Rensselaer Institute is officially renamed Rensselaer Polytechnic Institute. Additional requirements for the civil engineering degree extends the course to four years."
+  },
+  {
+    "decade": "1960s",
+    "year": "1862",
+    "description": "The Great Troy Fire destroys the Infant School Property."
+  },
+  {
+    "decade": "1960s",
+    "year": "1864",
+    "description": "The Main Building is completed on 8th Street."
+  },
+  {
+    "decade": "1960s",
+    "year": "1864",
+    "description": "Theta Xi is founded at R.P.I. on April 29th."
+  },
+  {
+    "decade": "1960s",
+    "year": "1865",
+    "description": "John F. Winslow becomes president."
+  },
+  {
+    "decade": "1960s",
+    "year": "1865",
+    "description": "The Transit, a student yearbook, is published by the junior class."
+  },
+  {
+    "decade": "1960s",
+    "year": "1866",
+    "description": "First Grand Marshal is selected by the student body."
+  },
+  {
+    "decade": "1960s",
+    "year": "1866",
+    "description": "Winslow Chemical Laboratory is completed."
+  },
+  {
+    "decade": "1960s",
+    "year": "1868",
+    "description": "Thomas Brinsmade was appointed president in 1868, but sadly he died after serving less than two month in office."
+  },
+  {
+    "decade": "1960s",
+    "year": "1868",
+    "description": "James Forsyth is appointed president."
+  },
+  {
+    "decade": "1960s",
+    "year": "1869",
+    "description": "The Rensselaer Association of Graduates is established."
+  },
+  {
+    "decade": "1960s",
+    "year": "1869",
+    "description": "The Polytechnic, a student newspaper, is published during the fall semester."
   },
   {
     "decade": "1960s",
@@ -533,6 +488,26 @@
     "decade": "1960s",
     "year": "1968",
     "description": "There was no commencement speaker in 1968. Nelson Rockefeller cancelled due to the assassination of Robert F. Kennedy."
+  },
+  {
+    "decade": "1970s",
+    "year": "1871",
+    "description": "First intercollegiate baseball game played against Union College."
+  },
+  {
+    "decade": "1970s",
+    "year": "1874",
+    "description": "The Glee Club is formed."
+  },
+  {
+    "decade": "1970s",
+    "year": "1874",
+    "description": "The first recorded Cane Rush is held."
+  },
+  {
+    "decade": "1970s",
+    "year": "1878",
+    "description": "Williams Proudfit Astronomical Observatory is completed."
   },
   {
     "decade": "1970s",
@@ -590,6 +565,41 @@
     "description": "Jonsson Engineering Center is dedicated."
   },
   {
+    "decade": "1970s",
+    "year": "1977",
+    "description": "The first \"Big Red Freakout\" hockey event takes place."
+  },
+  {
+    "decade": "1980s",
+    "year": "1881",
+    "description": "Garnett Baltimore is the first African-American student to earn a degree from Rensselaer."
+  },
+  {
+    "decade": "1980s",
+    "year": "1885",
+    "description": "The Polytechnic begins continuous publication as the student newspaper."
+  },
+  {
+    "decade": "1980s",
+    "year": "1886",
+    "description": "RPI joins the State Athletic Association and begins official participation in intercollegiate athletics."
+  },
+  {
+    "decade": "1980s",
+    "year": "1886",
+    "description": "First intercollegiate football game played against Ridgefield, A.C."
+  },
+  {
+    "decade": "1980s",
+    "year": "1887",
+    "description": "Rensselaer's first Gymnasium is built."
+  },
+  {
+    "decade": "1980s",
+    "year": "1888",
+    "description": "John H. Peck is appointed president."
+  },
+  {
     "decade": "1980s",
     "year": "1984",
     "description": "RPI community mourns the loss of George M. Low, who dies on July 17th."
@@ -618,6 +628,26 @@
     "decade": "1980s",
     "year": "1988",
     "description": "Roland Schmitt is appointed president."
+  },
+  {
+    "decade": "1990s",
+    "year": "1892",
+    "description": "Palmer C. Ricketts is hired as Director of the Institute."
+  },
+  {
+    "decade": "1990s",
+    "year": "1893",
+    "description": "Rensselaer exhibits at the World’s Columbian Exposition in Chicago, Illinois."
+  },
+  {
+    "decade": "1990s",
+    "year": "1893",
+    "description": "An Alumni Building is completed on Second Street."
+  },
+  {
+    "decade": "1990s",
+    "year": "1897",
+    "description": "Institute basketball team forms just a few years after the game is invented. The first game is played against the R.R.Y.M.C.A. of Troy."
   },
   {
     "decade": "1990s",
@@ -663,5 +693,15 @@
     "decade": "2000s",
     "year": "2008",
     "description": "The Curtis R. Priem Experimental Media and Performing Arts Center (EMPAC) is opened."
+  },
+  {
+    "decade": "2010s",
+    "year": "2017",
+    "description": "The Institute celebrates the 100th anniversary of the U.S. entry into World War I."
+  },
+  {
+    "decade": "2020s",
+    "year": "2024",
+    "description": "RPI celebrates its Bicentennial (200th anniversary) and unveils the world's first IBM quantum computer on a university campus."
   }
 ]
