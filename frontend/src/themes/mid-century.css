@@ -1,0 +1,100 @@
+/* frontend/src/themes/mid-century.css */
+
+/* 1. global "drastic change" */
+/* we group all three eras */
+body.era-1930s,
+body.era-1940s,
+body.era-1950s {
+  background-color: var(--color-mid-bg);
+  /* slightly desaturate and tint the whole page */
+  filter: saturate(0.9) sepia(0) hue-rotate(-10deg);
+}
+
+/* 2. component-specific styles */
+/* app.tsx */
+body.era-1930s .header-themed,
+body.era-1940s .header-themed,
+body.era-1950s .header-themed {
+  background-color: var(--color-mid-accent-1);
+  opacity: 0.9;
+}
+body.era-1930s .header-text-themed,
+body.era-1940s .header-text-themed,
+body.era-1950s .header-text-themed {
+  font-family: var(--font-mid-century);
+  color: var(--color-mid-bg);
+  text-transform: uppercase;
+}
+body.era-1930s .minimap-themed,
+body.era-1940s .minimap-themed,
+body.era-1950s .minimap-themed {
+  background-color: var(--color-mid-text);
+  font-family: var(--font-mid-century);
+  color: var(--color-mid-bg);
+}
+body.era-1930s .hero-card-themed,
+body.era-1940s .hero-card-themed,
+body.era-1950s .hero-card-themed {
+  background-color: var(--color-mid-bg);
+  opacity: 0.8;
+  border: 2px solid var(--color-mid-text);
+  border-radius: 4px;
+}
+body.era-1930s .hero-text-themed,
+body.era-1940s .hero-text-themed,
+body.era-1950s .hero-text-themed {
+  font-family: var(--font-mid-century);
+  color: var(--color-mid-text);
+  text-transform: uppercase;
+}
+body.era-1930s .scroll-arrow-themed,
+body.era-1940s .scroll-arrow-themed,
+body.era-1950s .scroll-arrow-themed {
+  color: var(--color-mid-text);
+}
+body.era-1930s .scroll-button-themed,
+body.era-1940s .scroll-button-themed,
+body.era-1950s .scroll-button-themed {
+  background-color: var(--color-mid-accent-2);
+  color: var(--color-mid-text);
+  border: 2px solid var(--color-mid-text);
+}
+body.era-1930s .scroll-button-themed:hover,
+body.era-1940s .scroll-button-themed:hover,
+body.era-1950s .scroll-button-themed:hover {
+  background-color: var(--color-mid-text);
+  color: var(--color-mid-bg);
+}
+
+/* timelineevent.tsx */
+body.era-1930s .event-dot-themed,
+body.era-1940s .event-dot-themed,
+body.era-1950s .event-dot-themed {
+  background-color: var(--color-mid-accent-2);
+  border: 2px solid var(--color-mid-text);
+}
+body.era-1930s .event-card-themed,
+body.era-1940s .event-card-themed,
+body.era-1950s .event-card-themed {
+  background-color: var(--color-mid-bg);
+  border: 2px solid var(--color-mid-text);
+  box-shadow: 4px 4px 0 var(--color-mid-accent-1);
+}
+body.era-1930s .event-card-themed img,
+body.era-1940s .event-card-themed img,
+body.era-1950s .event-card-themed img {
+  filter: none; /* remove grayscale/blur from other themes */
+}
+body.era-1930s .event-text-themed,
+body.era-1940s .event-text-themed,
+body.era-1950s .event-text-themed {
+  font-family: var(--font-sans); /* use a clean sans-serif */
+  color: var(--color-mid-text);
+}
+body.era-1930s .event-year-themed,
+body.era-1940s .event-year-themed,
+body.era-1950s .event-year-themed {
+  font-family: var(--font-mid-century);
+  color: var(--color-mid-accent-1);
+  text-transform: uppercase;
+}

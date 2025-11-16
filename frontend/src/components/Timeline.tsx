@@ -5,18 +5,18 @@ import { TimelineEvent } from "./TimelineEvent";
 
 interface TimelineProps {
   events: AppwriteEvent[];
-  // --- no more 'onEraChange' prop ---
+  // we just accept the setter function
+  onEraChange: (era: string | null) => void;
 }
 
 type GroupedEvents = {
   [era: string]: AppwriteEvent[];
 };
 
-export function Timeline({ events }: TimelineProps) {
+export function Timeline({ events, onEraChange }: TimelineProps) {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const eraRefs = useRef<(HTMLDivElement | null)[]>([]);
-  // --- we bring back 'currentEraRef' ---
-  const currentEraRef = useRef<string | null>(null);
+  // --- all state and 'currentEraRef' are removed ---
 
   const { eventsByEra, eras } = useMemo(() => {
     // (grouping logic is correct and unchanged)
@@ -33,24 +33,20 @@ export function Timeline({ events }: TimelineProps) {
   }, [events]);
 
   useEffect(() => {
-    // --- this is the original, working logic ---
+    // --- this is now the *only* observer logic ---
     const handleIntersect: IntersectionObserverCallback = (entries) => {
       entries.forEach((entry) => {
+        // when an era block is on screen
         if (entry.isIntersecting) {
           const target = entry.target as HTMLElement;
           const era = target.dataset.era; // e.g., "era-1920s"
-
-          if (era && era !== currentEraRef.current) {
-            console.log(`--- timeshift active: ${era} ---`);
-            if (currentEraRef.current) {
-              document.body.classList.remove(currentEraRef.current);
-            }
-            document.body.classList.add(era);
-            currentEraRef.current = era;
-          }
+          console.log(`--- observer sees: ${era} ---`);
+          // just report it. don't do anything else. The 'era' will be 'undefined' if data-era is not set, so we convert it to 'null'.
+          onEraChange(era || null);
         }
       });
     };
+    // --------------------------------------------
 
     observerRef.current = new IntersectionObserver(handleIntersect, {
       root: null,
@@ -67,7 +63,9 @@ export function Timeline({ events }: TimelineProps) {
     return () => {
       observerRef.current?.disconnect();
     };
-  }, [eras]); // remove 'onEraChange' from dependencies
+  }, [eras, onEraChange]); // dependencies are clean
+
+  // --- the 'reset' useEffect is gone ---
 
   let globalEventIndex = 0;
 

@@ -1,0 +1,77 @@
+/* frontend/src/themes/1980s.css */
+
+/* 1. global "drastic change" */
+body.era-1980s {
+  background-color: #000;
+  /* remove all filters, like sepia */
+  filter: none;
+  /* sharp corners */
+  --border-radius: 0;
+}
+
+/* 2. component-specific styles */
+/* app.tsx */
+body.era-1980s .header-themed {
+  background-color: #0a0a0a;
+  border-bottom: 2px solid var(--color-terminal-green);
+  border-radius: 0;
+}
+body.era-1980s .header-text-themed {
+  font-family: var(--font-mono);
+  color: var(--color-terminal-green);
+  /* add a subtle 'scan line' effect */
+  text-shadow: 0 0 5px var(--color-terminal-green);
+}
+body.era-1980s .minimap-themed {
+  background-color: #0a0a0a;
+  font-family: var(--font-mono);
+  color: var(--color-terminal-green);
+  border-bottom: 1px solid var(--color-terminal-green);
+}
+body.era-1980s .hero-card-themed {
+  background-color: #0a0a0a;
+  border: 2px solid var(--color-terminal-green);
+  border-radius: 0;
+}
+body.era-1980s .hero-text-themed {
+  font-family: var(--font-mono);
+  color: var(--color-terminal-green);
+  text-shadow: 0 0 5px var(--color-terminal-green);
+}
+body.era-1980s .scroll-arrow-themed {
+  color: var(--color-terminal-green);
+}
+body.era-1980s .scroll-button-themed {
+  background-color: var(--color-terminal-green);
+  color: #000;
+  border-radius: 0;
+  border: 2px solid var(--color-terminal-green);
+}
+body.era-1980s .scroll-button-themed:hover {
+  background-color: #000;
+  color: var(--color-terminal-green);
+}
+
+/* timelineevent.tsx */
+body.era-1980s .event-dot-themed {
+  background-color: var(--color-terminal-green);
+  border-radius: 0;
+}
+body.era-1980s .event-card-themed {
+  background-color: #0a0a0a;
+  border: 2px solid var(--color-terminal-green);
+  box-shadow: none;
+  border-radius: 0;
+}
+body.era-1980s .event-card-themed img {
+  /* simulate crt glow/blur */
+  filter: blur(0.5px) grayscale(1) brightness(1.2);
+}
+body.era-1980s .event-text-themed {
+  font-family: var(--font-mono);
+  color: var(--color-terminal-green);
+}
+body.era-1980s .event-year-themed {
+  font-family: var(--font-mono);
+  color: var(--color-terminal-green);
+}

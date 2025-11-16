@@ -1,0 +1,193 @@
+/* frontend/src/themes/1820s.css */
+
+/* 1. global "drastic change" */
+/* we add all the new eras to this selector list */
+body.era-1820s,
+body.era-1830s,
+body.era-1840s,
+body.era-1850s,
+body.era-1860s,
+body.era-1870s,
+body.era-1880s,
+body.era-1890s,
+body.era-1900s,
+body.era-1910s {
+  background-color: var(--color-bw-bg);
+  filter: grayscale(1) sepia(0);
+}
+
+/* 2. component-specific styles */
+/* app.tsx */
+body.era-1820s .header-themed,
+body.era-1830s .header-themed,
+body.era-1840s .header-themed,
+body.era-1850s .header-themed,
+body.era-1860s .header-themed,
+body.era-1870s .header-themed,
+body.era-1880s .header-themed,
+body.era-1890s .header-themed,
+body.era-1900s .header-themed,
+body.era-1910s .header-themed {
+  background-color: var(--color-bw-bg);
+  border-bottom: 2px solid var(--color-bw-text);
+  opacity: 0.8;
+}
+body.era-1820s .header-text-themed,
+body.era-1830s .header-text-themed,
+body.era-1840s .header-text-themed,
+body.era-1850s .header-text-themed,
+body.era-1860s .header-text-themed,
+body.era-1870s .header-text-themed,
+body.era-1880s .header-text-themed,
+body.era-1890s .header-text-themed,
+body.era-1900s .header-text-themed,
+body.era-1910s .header-text-themed {
+  font-family: var(--font-serif);
+  color: var(--color-bw-text);
+}
+body.era-1820s .minimap-themed,
+body.era-1830s .minimap-themed,
+body.era-1840s .minimap-themed,
+body.era-1850s .minimap-themed,
+body.era-1860s .minimap-themed,
+body.era-1870s .minimap-themed,
+body.era-1880s .minimap-themed,
+body.era-1890s .minimap-themed,
+body.era-1900s .minimap-themed,
+body.era-1910s .minimap-themed {
+  background-color: var(--color-bw-accent);
+  font-family: var(--font-serif);
+  color: var(--color-bw-bg);
+}
+body.era-1820s .hero-card-themed,
+body.era-1830s .hero-card-themed,
+body.era-1840s .hero-card-themed,
+body.era-1850s .hero-card-themed,
+body.era-1860s .hero-card-themed,
+body.era-1870s .hero-card-themed,
+body.era-1880s .hero-card-themed,
+body.era-1890s .hero-card-themed,
+body.era-1900s .hero-card-themed,
+body.era-1910s .hero-card-themed {
+  background-color: var(--color-bw-bg);
+  opacity: 0.8;
+  border: 2px solid var(--color-bw-text);
+}
+body.era-1820s .hero-text-themed,
+body.era-1830s .hero-text-themed,
+body.era-1840s .hero-text-themed,
+body.era-1850s .hero-text-themed,
+body.era-1860s .hero-text-themed,
+body.era-1870s .hero-text-themed,
+body.era-1880s .hero-text-themed,
+body.era-1890s .hero-text-themed,
+body.era-1900s .hero-text-themed,
+body.era-1910s .hero-text-themed {
+  font-family: var(--font-serif);
+  color: var(--color-bw-text);
+}
+body.era-1820s .scroll-arrow-themed,
+body.era-1830s .scroll-arrow-themed,
+body.era-1840s .scroll-arrow-themed,
+body.era-1850s .scroll-arrow-themed,
+body.era-1860s .scroll-arrow-themed,
+body.era-1870s .scroll-arrow-themed,
+body.era-1880s .scroll-arrow-themed,
+body.era-1890s .scroll-arrow-themed,
+body.era-1900s .scroll-arrow-themed,
+body.era-1910s .scroll-arrow-themed {
+  color: var(--color-bw-text);
+}
+body.era-1820s .scroll-button-themed,
+body.era-1830s .scroll-button-themed,
+body.era-1840s .scroll-button-themed,
+body.era-1850s .scroll-button-themed,
+body.era-1860s .scroll-button-themed,
+body.era-1870s .scroll-button-themed,
+body.era-1880s .scroll-button-themed,
+body.era-1890s .scroll-button-themed,
+body.era-1900s .scroll-button-themed,
+body.era-1910s .scroll-button-themed {
+  background-color: var(--color-bw-text);
+  color: var(--color-bw-bg);
+  border: 2px solid var(--color-bw-text);
+}
+body.era-1820s .scroll-button-themed:hover,
+body.era-1830s .scroll-button-themed:hover,
+body.era-1840s .scroll-button-themed:hover,
+body.era-1850s .scroll-button-themed:hover,
+body.era-1860s .scroll-button-themed:hover,
+body.era-1870s .scroll-button-themed:hover,
+body.era-1880s .scroll-button-themed:hover,
+body.era-1890s .scroll-button-themed:hover,
+body.era-1900s .scroll-button-themed:hover,
+body.era-1910s .scroll-button-themed:hover {
+  background-color: var(--color-bw-bg);
+  color: var(--color-bw-text);
+}
+
+/* timelineevent.tsx */
+body.era-1820s .event-dot-themed,
+body.era-1830s .event-dot-themed,
+body.era-1840s .event-dot-themed,
+body.era-1850s .event-dot-themed,
+body.era-1860s .event-dot-themed,
+body.era-1870s .event-dot-themed,
+body.era-1880s .event-dot-themed,
+body.era-1890s .event-dot-themed,
+body.era-1900s .event-dot-themed,
+body.era-1910s .event-dot-themed {
+  background-color: var(--color-bw-text);
+}
+body.era-1820s .event-card-themed,
+body.era-1830s .event-card-themed,
+body.era-1840s .event-card-themed,
+body.era-1850s .event-card-themed,
+body.era-1860s .event-card-themed,
+body.era-1870s .event-card-themed,
+body.era-1880s .event-card-themed,
+body.era-1890s .event-card-themed,
+body.era-1900s .event-card-themed,
+body.era-1910s .event-card-themed {
+  background-color: var(--color-bw-bg);
+  border: 2px solid var(--color-bw-text);
+  box-shadow: none;
+}
+body.era-1820s .event-card-themed img,
+body.era-1830s .event-card-themed img,
+body.era-1840s .event-card-themed img,
+body.era-1850s .event-card-themed img,
+body.era-1860s .event-card-themed img,
+body.era-1870s .event-card-themed img,
+body.era-1880s .event-card-themed img,
+body.era-1890s .event-card-themed img,
+body.era-1900s .event-card-themed img,
+body.era-1910s .event-card-themed img {
+  filter: grayscale(1) brightness(1);
+}
+body.era-1820s .event-text-themed,
+body.era-1830s .event-text-themed,
+body.era-1840s .event-text-themed,
+body.era-1850s .event-text-themed,
+body.era-1860s .event-text-themed,
+body.era-1870s .event-text-themed,
+body.era-1880s .event-text-themed,
+body.era-1890s .event-text-themed,
+body.era-1900s .event-text-themed,
+body.era-1910s .event-text-themed {
+  font-family: var(--font-serif);
+  color: var(--color-bw-text);
+}
+body.era-1820s .event-year-themed,
+body.era-1830s .event-year-themed,
+body.era-1840s .event-year-themed,
+body.era-1850s .event-year-themed,
+body.era-1860s .event-year-themed,
+body.era-1870s .event-year-themed,
+body.era-1880s .event-year-themed,
+body.era-1890s .event-year-themed,
+body.era-1900s .event-year-themed,
+body.era-1910s .event-year-themed {
+  font-family: var(--font-serif);
+  color: var(--color-bw-accent);
+}
