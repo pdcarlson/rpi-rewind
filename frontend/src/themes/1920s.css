@@ -1,0 +1,61 @@
+/* frontend/src/themes/1920s.css */
+
+/* 1. global "drastic change" */
+body.era-1920s {
+  /* we use the CSS variable that tailwind created */
+  background-color: var(--color-sepia-bg);
+  /* 'sepia' is a real CSS filter, not a tailwind utility */
+  filter: sepia(1);
+}
+
+/* 2. component-specific styles */
+/* app.tsx */
+body.era-1920s .header-themed {
+  background-color: var(--color-sepia-accent);
+  opacity: 0.8;
+}
+body.era-1920s .header-text-themed {
+  font-family: var(--font-serif);
+  color: var(--color-sepia-bg);
+}
+body.era-1920s .minimap-themed {
+  background-color: var(--color-sepia-accent);
+  font-family: var(--font-serif);
+  color: var(--color-sepia-bg);
+}
+body.era-1920s .hero-card-themed {
+  background-color: var(--color-sepia-bg);
+  opacity: 0.8;
+}
+body.era-1920s .hero-text-themed {
+  font-family: var(--font-serif);
+  color: var(--color-sepia-text);
+}
+body.era-1920s .scroll-arrow-themed {
+  color: var(--color-sepia-accent);
+}
+body.era-1920s .scroll-button-themed {
+  background-color: var(--color-sepia-accent);
+  color: var(--color-sepia-bg);
+}
+body.era-1920s .scroll-button-themed:hover {
+  background-color: var(--color-sepia-text);
+}
+
+/* timelineevent.tsx */
+body.era-1920s .event-dot-themed {
+  background-color: var(--color-sepia-accent);
+}
+body.era-1920s .event-card-themed {
+  background-color: var(--color-sepia-bg);
+  box-shadow: 0 10px 15px -3px var(--color-sepia-accent),
+    0 4px 6px -4px var(--color-sepia-accent);
+}
+body.era-1920s .event-text-themed {
+  font-family: var(--font-serif);
+  color: var(--color-sepia-text);
+}
+body.era-1920s .event-year-themed {
+  font-family: var(--font-serif);
+  color: var(--color-sepia-accent);
+}
