@@ -5,7 +5,6 @@ import { Timeline } from "./components/Timeline";
 import { Query } from "appwrite";
 
 // --- theme imports ---
-// (these are correct)
 import "./themes/1820s.css";
 import "./themes/1920s.css";
 import "./themes/mid-century.css";
@@ -53,17 +52,66 @@ const HeroSection = forwardRef<HTMLDivElement>((props, ref) => {
   );
 });
 
+// --- new epochminimap component ---
+function EpochMinimap({ scrollPercent }: { scrollPercent: number }) {
+  // calculate the left position, but cap it at 98%
+  // so the puck doesn't fly off the end of the bar
+  const puckPosition = Math.min(scrollPercent, 98.5);
+
+  return (
+    <div
+      className="minimap-themed sticky top-16 z-40 w-full bg-gray-800 
+                 py-3 shadow-md transition-colors duration-700"
+    >
+      {/* main container for bar and labels */}
+      <div className="relative mx-auto max-w-7xl px-4">
+        {/* labels */}
+        <div className="minimap-themed flex w-full justify-between pb-1 font-sans text-xs font-bold text-gray-400">
+          <span>1824</span>
+          <span>2024</span>
+        </div>
+
+        {/* the "heat map" track */}
+        <div className="flex h-2 w-full overflow-hidden rounded-full">
+          {/* these colors are from our tailwind.config.js */}
+          <div className="flex-1 bg-bw-accent" />
+          <div className="flex-1 bg-sepia-accent" />
+          <div className="flex-1 bg-mid-accent-1" />
+          <div className="flex-1 bg-retro-accent1" />
+          <div className="flex-1 bg-terminal-green" />
+          <div className="flex-1 bg-red-600" />
+        </div>
+
+        {/* the "you are here" puck */}
+        <div
+          className="absolute top-6 -mt-0.5 h-5 w-1.5 -translate-x-1/2 
+                     rounded-full bg-white ring-2 ring-red-600
+                     transition-all duration-100 ease-linear"
+          // we use inline style to set the 'left' percentage
+          style={{ left: `${puckPosition}%` }}
+        >
+          {/* this is the caret on top of the puck */}
+          <div
+            className="absolute -top-2 left-1/2 h-0 w-0 -translate-x-1/2 
+                       border-x-4 border-x-transparent border-b-4 border-b-white"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+// ------------------------------------
+
 function App() {
   const [events, setEvents] = useState<AppwriteEvent[] | null>(null);
   const [error, setError] = useState<string | null>(null);
-
-  // --- this is our single source of truth ---
   const [currentEra, setCurrentEra] = useState<string | null>(null);
-  // we use a ref to track the 'last' era for removal
   const lastEraRef = useRef<string | null>(null);
-  // ------------------------------------------
-
   const heroRef = useRef<HTMLDivElement>(null);
+
+  // --- new state for scroll percentage ---
+  const [scrollPercent, setScrollPercent] = useState(0);
+  // ---------------------------------------
 
   // (data fetching logic is correct and unchanged)
   useEffect(() => {
@@ -100,21 +148,41 @@ function App() {
     fetchData();
   }, []);
 
-  // --- hero observer ---
-  // this observer *only* sets the state. it doesn't touch the dom.
+  // --- new effect for scroll calculation ---
+  useEffect(() => {
+    const handleScroll = () => {
+      const el = document.documentElement;
+      const scrollTop = el.scrollTop;
+      const scrollHeight = el.scrollHeight;
+      const clientHeight = el.clientHeight;
+
+      // prevent division by zero
+      if (scrollHeight - clientHeight === 0) {
+        setScrollPercent(0);
+        return;
+      }
+
+      const percent = (scrollTop / (scrollHeight - clientHeight)) * 100;
+      setScrollPercent(percent);
+    };
+
+    // add listener
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    // remove on cleanup
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+  // -----------------------------------------
+
+  // (hero observer logic is correct and unchanged)
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
         if (entry.isIntersecting) {
-          // hero is visible, set era to null (reset)
           setCurrentEra(null);
         }
       },
-      {
-        root: null,
-        threshold: 0.5, // 50% visible
-      }
+      { root: null, threshold: 0.5 }
     );
     if (heroRef.current) {
       observer.observe(heroRef.current);
@@ -125,29 +193,20 @@ function App() {
       }
     };
   }, []);
-  // ---------------------
 
-  // --- this is the new "master" effect ---
-  // this one effect watches the 'currentEra' state
-  // and is the *only* thing that touches document.body
+  // (theme application logic is correct and unchanged)
   useEffect(() => {
-    // 1. remove the *last* era theme (if one exists)
     if (lastEraRef.current) {
       document.body.classList.remove(lastEraRef.current);
     }
-
-    // 2. add the *new* era theme (if one exists)
     if (currentEra) {
       console.log(`--- applying theme: ${currentEra} ---`);
       document.body.classList.add(currentEra);
     } else {
       console.log(`--- resetting theme ---`);
     }
-
-    // 3. update the 'last' era ref for the next change
     lastEraRef.current = currentEra;
-  }, [currentEra]); // this runs *only* when 'currentEra' changes
-  // ---------------------------------------
+  }, [currentEra]);
 
   // (error/loading states are correct and unchanged)
   if (error) {
@@ -175,7 +234,6 @@ function App() {
       className="min-h-screen font-sans text-gray-100 bg-gray-900
                  transition-all duration-700 ease-in-out"
     >
-      {/* ... (header is unchanged) ... */}
       <header
         className="header-themed sticky top-0 z-50 w-full bg-gray-900 
                    bg-opacity-80 shadow-lg backdrop-blur-md 
@@ -191,11 +249,12 @@ function App() {
         </div>
       </header>
 
-      <EpochMinimap />
+      {/* pass the new state as a prop */}
+      <EpochMinimap scrollPercent={scrollPercent} />
+
       <HeroSection ref={heroRef} />
 
       <main className="mx-auto max-w-7xl p-4">
-        {/* we pass the 'setCurrentEra' setter function */}
         <Timeline events={events} onEraChange={setCurrentEra} />
       </main>
 
@@ -204,22 +263,7 @@ function App() {
   );
 }
 
-// (EpochMinimap and ScrollToTopButton are correct and unchanged)
-function EpochMinimap() {
-  return (
-    <div
-      className="minimap-themed sticky top-16 z-40 h-10 w-full bg-gray-800 
-                 shadow-md transition-colors duration-700"
-    >
-      <div className="mx-auto h-full max-w-7xl px-4">
-        <p className="minimap-themed py-2 text-sm text-gray-400">
-          [epoch minimap placeholder]
-        </p>
-      </div>
-    </div>
-  );
-}
-
+// (ScrollToTopButton is correct and unchanged)
 function ScrollToTopButton() {
   const [isVisible, setIsVisible] = useState(false);
   const handleScroll = () => {
@@ -266,4 +310,5 @@ function ScrollToTopButton() {
     </button>
   );
 }
+
 export default App;
